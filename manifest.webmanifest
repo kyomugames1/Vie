@@ -1,11 +1,11 @@
 {
- "name": "Ma vie",
- "short_name": "Ma vie",
+ "name": "Step Up",
+ "short_name": "Step Up",
  "start_url": "./index.html",
  "scope": "./",
  "display": "standalone",
  "background_color": "#09090B",
- "theme_color": "#09090B",
+ "theme_color": "#455B84",
  "lang": "fr",
  "icons": [
   {

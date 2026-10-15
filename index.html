@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ma vie</title>
+<title>Step Up</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Ma vie">
+<meta name="apple-mobile-web-app-title" content="Step Up">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#09090B">
+<meta name="theme-color" content="#455B84">
 
 <script>try{var t=localStorage.getItem("vie-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -181,6 +181,18 @@ nav button[aria-selected=true]{background:rgba(91,141,239,.18);color:#8DB2FF;box
 #nclk{font-size:72px;font-weight:700;color:#34343b;letter-spacing:.02em}
 #nsub,#nsen{font-size:14px;color:#44444c}
 #nstop{margin-top:48px;background:transparent;border:1px solid #2a2a30;color:#55555e;border-radius:99px;padding:14px 24px;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.brand{display:flex;align-items:center;gap:12px;margin:6px 0 18px}
+.brand img{border-radius:12px}
+.brand h1{margin:0}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mt{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:4px;padding:16px;min-height:126px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,0) 60%),var(--card);border:1px solid var(--line);color:var(--ink);text-align:left}
+.mt.wide{grid-column:1/-1;min-height:92px}
+.mt:active{box-shadow:0 0 18px rgba(91,141,239,.45);border-color:var(--acc)}
+.mi{font-size:30px;line-height:1}
+.mt b{font-size:16px}
+.mt small{color:var(--mute);font-size:12px}
+.rep div{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.rep span{color:var(--mute)}
 [hidden]{display:none!important}
 </style>
 <script>try{var t0=JSON.parse(localStorage.getItem("vie-v1")).theme;if(t0)document.documentElement.setAttribute("data-theme",t0)}catch(e){}</script>
@@ -193,6 +205,17 @@ nav button[aria-selected=true]{background:rgba(91,141,239,.18);color:#8DB2FF;box
     <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" fill="none" stroke="var(--line)" stroke-width="7"/><circle id="arc" cx="32" cy="32" r="26" fill="none" stroke="var(--ok)" stroke-width="7" stroke-linecap="round" stroke-dasharray="163.4" stroke-dashoffset="163.4" transform="rotate(-90 32 32)" style="transition:stroke-dashoffset .5s"/></svg>
     <div class="txt"><b id="pt"></b><span id="ps"></span></div>
   </div>
+  <section id="v-menu">
+    <div class="brand"><img src="data:image/png;base64,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" width="48" height="48" alt=""><div><h1>Step Up</h1><p class="sub" id="msub" style="margin:0"></p></div></div>
+    <div class="mgrid">
+      <button class="mt wide" data-cat="dash"><span class="mi">🏠</span><b>Accueil</b><small>Ton tableau de bord</small></button>
+      <button class="mt" data-cat="tasks"><span class="mi">✅</span><b>Tâches &amp; habitudes</b><small>Organise ta journée</small></button>
+      <button class="mt" data-cat="cal"><span class="mi">📅</span><b>Historique</b><small>Le calendrier de tes jours</small></button>
+      <button class="mt" data-cat="learn"><span class="mi">🎓</span><b>Learning</b><small>Focus · Apprendre</small></button>
+      <button class="mt" data-cat="well"><span class="mi">🧘</span><b>Wellness</b><small>Respirer · Sommeil · Journal</small></button>
+      <button class="mt wide" data-cat="steps"><span class="mi">🪜</span><b>Steps</b><small>Croissance · Mon cap</small></button>
+    </div>
+  </section>
   <section id="v-dash">
     <h1>Bonjour 👋</h1>
     <p class="sub" id="dsub" style="text-transform:capitalize"></p>
@@ -286,6 +309,7 @@ nav button[aria-selected=true]{background:rgba(91,141,239,.18);color:#8DB2FF;box
   <section id="v-sleep" hidden>
     <h1>Sommeil</h1>
     <p class="sub">Journal, analyse et réveil en douceur.</p>
+    <div class="card" id="nrepc" hidden><h3 class="ch">🌙 Rapport de la dernière nuit</h3><div id="nrep"></div></div>
     <div class="dk">
       <div style="display:flex;gap:8px">
         <div class="dtile g"><b id="s1">–</b><span>Moyenne 7 nuits</span></div>
@@ -308,12 +332,13 @@ nav button[aria-selected=true]{background:rgba(91,141,239,.18);color:#8DB2FF;box
       <div class="add" id="cres" style="flex-wrap:nowrap"></div>
       <p class="sub" style="font-size:12px;margin:8px 0 0">Un cycle dure environ 90 min, avec 15 min pour s’endormir. C’est une estimation, pas une mesure.</p></div>
     <div class="card"><h3 class="ch">Alarme douce</h3>
-      <div class="add"><label class="lb">Réveil à<input type="time" id="at" value="07:00"></label><label class="lb">Montée du volume<select id="aw"><option value="10">10 min</option><option value="20" selected>20 min</option><option value="30">30 min</option></select></label></div>
+      <div class="add"><label class="lb">Réveil à<input type="time" id="at" value="07:00"></label><label class="lb">Fenêtre de réveil (mode nuit)<select id="aw"><option value="10">10 min</option><option value="20" selected>20 min</option><option value="30">30 min</option></select></label></div>
       <div class="add"><button class="btn" id="aon">Activer l’alarme</button><button class="btn alt" id="atest">Tester le son</button></div>
       <p class="sub" id="ast" style="font-size:13px;margin:8px 0 0"></p>
-      <p class="sub" style="font-size:12px;margin:6px 0 0">Laisse cet écran allumé, le téléphone en charge et le son activé. Garde aussi une alarme native en secours : une page web peut être suspendue quand l’écran se verrouille.</p></div>
+      <p class="sub" style="font-size:12px;margin:6px 0 0">L’alarme tente de rester active écran verrouillé, mais l’iPhone peut suspendre l’app : teste d’abord quelques minutes (l’heure de dernière activité s’affiche). Garde toujours une alarme de l’app Horloge en secours.</p></div>
     <div class="card"><h3 class="ch">Mode nuit</h3>
       <p class="sub" style="font-size:13px;margin:0 0 10px">Pose le téléphone sur le matelas, en charge. Il utilise l’heure et la montée de volume de l’alarme douce ci-dessus : la musique démarre au premier sommeil léger dans la fenêtre, et au plus tard à l’heure choisie.</p>
+      <label class="lb" style="flex-direction:row;align-items:center;gap:8px;margin:0 0 10px;font-size:13px"><input type="checkbox" id="nwl"> Garder l’écran allumé (plus fiable)</label>
       <div class="add"><button class="btn" id="non">Démarrer la nuit</button></div>
       <p class="sub" id="nst" style="font-size:13px;margin:8px 0 0"></p>
       <div id="nchart" style="margin-top:8px"></div>
@@ -347,19 +372,8 @@ nav button[aria-selected=true]{background:rgba(91,141,239,.18);color:#8DB2FF;box
   </section>
 </main>
 <div id="toast" hidden><span id="tmsg"></span><button id="tundo">Annuler</button></div>
-<nav role="tablist">
-  <button role="tab" aria-selected="true" data-v="dash"><span>🏠</span>Accueil</button>
-  <button role="tab" aria-selected="false" data-v="tasks"><span>✅</span>Tâches</button>
-  <button role="tab" aria-selected="false" data-v="habits"><span>🔁</span>Habitudes</button>
-  <button role="tab" aria-selected="false" data-v="cal"><span>📅</span>Historique</button>
-  <button role="tab" aria-selected="false" data-v="focus"><span>⏱</span>Focus</button>
-  <button role="tab" aria-selected="false" data-v="breath"><span>🧘</span>Respirer</button>
-  <button role="tab" aria-selected="false" data-v="journal"><span>✍️</span>Journal</button>
-  <button role="tab" aria-selected="false" data-v="sleep"><span>😴</span>Sommeil</button>
-  <button role="tab" aria-selected="false" data-v="learn"><span>📚</span>Apprendre</button>
-  <button role="tab" aria-selected="false" data-v="growth"><span>🌳</span>Croissance</button>
-  <button role="tab" aria-selected="false" data-v="cap"><span>🧭</span>Mon cap</button>
-</nav>
+<nav role="tablist" id="nav" hidden></nav>
+<audio id="ka" playsinline></audio>
 <div id="nov" hidden><div id="nclk">--:--</div><div id="nsub"></div><div id="nsen"></div><button id="nstop">Maintenir pour arrêter</button></div>
 <script>
 (function(){
@@ -639,7 +653,7 @@ function addGoal(){
 $("gin").onkeydown=function(e){if(e.key==="Enter")addGoal()};
 $("v-dash").onclick=function(e){
   var b=e.target.closest("button");if(!b)return;
-  if(b.dataset.go){document.querySelector('nav button[data-v="'+b.dataset.go+'"]').click();return}
+  if(b.dataset.go){go(b.dataset.go);return}
   if(b.id==="gadd"){addGoal();return}
   if(b.dataset.h){buzz();S.habits.forEach(function(h){if(h.id===b.dataset.h){if(h.log[b.dataset.k])delete h.log[b.dataset.k];else h.log[b.dataset.k]=1}})}
   else if(b.dataset.mood){buzz();jd().m=+b.dataset.mood}
@@ -680,7 +694,7 @@ function renderS(){
   svg+='<line x1="4" x2="296" y1="'+(110-goal*60*k)+'" y2="'+(110-goal*60*k)+'" stroke="var(--mute)" stroke-dasharray="4 4"/></svg>';
   $("schart").innerHTML=svg;
   var lk=Object.keys(S.sl).sort().reverse().filter(function(d){return S.sl[d].h})[0];
-  $("nchart").innerHTML=lk?'<p class="sub" style="font-size:13px;margin:0 0 4px">Dernière nuit analysée · '+fmt(lk)+'</p>'+drawHyp(S.sl[lk].h)+'<p class="sub" style="font-size:12px;margin:4px 0 0">'+hypSum(S.sl[lk].h)+'</p>':"";
+  $("nrep").innerHTML=lk?repHTML(lk):"";$("nrepc").hidden=!lk;$("nchart").innerHTML="";
   $("shist").innerHTML=Object.keys(S.sl).sort().reverse().slice(0,7).map(function(d){var e=S.sl[d];return'<div class="row"><div class="txt">'+hm(e.d)+' · qualité '+e.q+'/5<small>'+fmt(d)+' · '+e.b+' → '+e.w+'</small></div><button class="del" data-sdel="'+d+'" aria-label="Supprimer">×</button></div>'}).join("")||'<div class="empty">Aucune nuit enregistrée.</div>';
 }
 $("sq").onclick=function(e){var b=e.target.closest("button");if(!b)return;sq=+b.dataset.q;document.querySelectorAll(".qb").forEach(function(x){x.classList.toggle("on",+x.dataset.q===sq)})};
@@ -710,68 +724,100 @@ $("cmd").onclick=function(e){
 };
 renderC();
 
-var ac=null,mg=null,mt=null,al=null,alOn=false,wl=null;
+var ac=null,al=null,alOn=false,wl=null,alU=null,siU=null,nz=null,nst=null,NL={a:"éveillé",l:"sommeil léger",c:"sommeil calme"};
 function actx(){if(!ac)ac=new (window.AudioContext||window.webkitAudioContext)();ac.resume();return ac}
-function startMusic(ms){
-  var c=actx(),sc=[261.63,293.66,329.63,392,440,523.25,587.33],i=2;
-  mg=c.createGain();mg.gain.setValueAtTime(0.0001,c.currentTime);
-  mg.gain.exponentialRampToValueAtTime(0.5,c.currentTime+ms/1000);
-  mg.connect(c.destination);
-  function note(){
-    [sc[i],sc[i]/2].forEach(function(f,j){
-      var o=c.createOscillator(),g=c.createGain(),t=c.currentTime;
-      o.type="sine";o.frequency.value=f;
-      g.gain.setValueAtTime(0.0001,t);
-      g.gain.exponentialRampToValueAtTime(j?0.25:0.4,t+0.7);
-      g.gain.exponentialRampToValueAtTime(0.0001,t+3.4);
-      o.connect(g);g.connect(mg);o.start();o.stop(t+3.5);
-    });
-    i=Math.max(0,Math.min(sc.length-1,i+Math.floor(Math.random()*3)-1));
+function mkWav(p,sr){
+  var n=p.length,b=new ArrayBuffer(44+n*2),v=new DataView(b);
+  function ws(o,t){for(var i=0;i<t.length;i++)v.setUint8(o+i,t.charCodeAt(i))}
+  ws(0,"RIFF");v.setUint32(4,36+n*2,true);ws(8,"WAVEfmt ");v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);
+  v.setUint32(24,sr,true);v.setUint32(28,sr*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);ws(36,"data");v.setUint32(40,n*2,true);
+  new Int16Array(b,44,n).set(p);
+  return URL.createObjectURL(new Blob([b],{type:"audio/wav"}));
+}
+function synth(tot,R,g){
+  var sr=4000,N=sr*tot,p=new Int16Array(N),sc=[261.63,293.66,329.63,392,440,523.25,587.33],ix=2;
+  for(var t0=0;t0<tot;t0+=1.8){
+    var f=sc[ix],a=R?Math.min(1,t0/R):1,s0=Math.floor(t0*sr),len=Math.floor(3.4*sr);
+    a=g*a*a;ix=Math.max(0,Math.min(6,ix+Math.floor(Math.random()*3)-1));
+    for(var i=0;i<len&&s0+i<N;i++){var tt=i/sr,e=Math.min(tt/0.7,1)*Math.exp(-tt*1.1);p[s0+i]+=Math.round(a*e*(Math.sin(6.2832*f*tt)*16000+Math.sin(3.1416*f*tt)*9000))}
   }
-  note();mt=setInterval(note,1800);
+  return mkWav(p,sr);
 }
-function stopMusic(){clearInterval(mt);mt=null;if(mg&&ac){try{mg.gain.cancelScheduledValues(ac.currentTime);mg.gain.setTargetAtTime(0.0001,ac.currentTime,0.3)}catch(e){}}}
+function alarmURL(){return alU||(alU=synth(900,300,0.9))}
+function silentURL(){return siU||(siU=mkWav(new Int16Array(16000),8000))}
+function sess(){try{if(navigator.audioSession)navigator.audioSession.type="play-and-record"}catch(e){}}
+function kaPlay(url,loop){var a=$("ka");a.loop=loop;a.src=url;var p=a.play();if(p&&p.catch)p.catch(function(){})}
+function kaStart(){
+  sess();kaPlay(silentURL(),true);
+  try{navigator.mediaSession.metadata=new MediaMetadata({title:"Step Up",artist:"Nuit en cours"});navigator.mediaSession.playbackState="playing";["pause","stop"].forEach(function(k){navigator.mediaSession.setActionHandler(k,function(){$("ka").play()})})}catch(e){}
+}
+function kaAlarm(){kaPlay(alarmURL(),false)}
+function kaStop(){
+  var a=$("ka");a.pause();a.removeAttribute("src");try{a.load()}catch(e){}
+  try{["pause","stop"].forEach(function(k){navigator.mediaSession.setActionHandler(k,null)});navigator.mediaSession.playbackState="none"}catch(e){}
+}
+function getWL(){try{if(navigator.wakeLock&&!wl)navigator.wakeLock.request("screen").then(function(l){wl=l;l.addEventListener("release",function(){wl=null})}).catch(function(){})}catch(e){}}
+function relWL(){if(wl){try{wl.release()}catch(e){}wl=null}}
+document.addEventListener("visibilitychange",function(){if(document.visibilityState==="visible"&&(nz||al)&&$("nwl").checked)getWL()});
+
 function alStop(){
-  clearInterval(al);al=null;stopMusic();
-  if(wl){try{wl.release()}catch(e){}wl=null}
-  if(alOn)$("sw").value=hhmm(new Date());
-  alOn=false;$("aon").textContent="Activer l’alarme";$("ast").textContent="";
+  clearInterval(al);al=null;kaStop();relWL();alOn=false;
+  $("aon").textContent="Activer l’alarme";$("ast").textContent="";
 }
-$("atest").onclick=function(){if(mt){stopMusic();return}startMusic(8000);setTimeout(stopMusic,12000)};
+$("atest").onclick=function(){
+  var a=$("ka");
+  if(!a.paused){kaStop();return}
+  sess();kaPlay(synth(8,0,0.6),false);
+  setTimeout(function(){if(!al&&!nz)kaStop()},9000);
+};
 $("aon").onclick=function(){
   if(al){alStop();return}
   var t=toMin($("at").value||"07:00"),T=new Date();
   T.setHours(Math.floor(t/60),t%60,0,0);if(T<=new Date())T.setDate(T.getDate()+1);
-  var W=(+$("aw").value)*60000;
-  actx();
-  getWL();
+  var S0=T.getTime()-300000;
+  kaStart();if($("nwl").checked)getWL();
   alOn=false;
-  $("aon").textContent="Désactiver l’alarme";
-  $("ast").textContent="Alarme à "+hhmm(T)+" · la musique démarre doucement dès "+hhmm(new Date(T-W))+".";
   al=setInterval(function(){
     var n=Date.now();
-    if(!alOn&&n>=T-W){alOn=true;startMusic(W);$("aon").textContent="Arrêter la musique";$("ast").textContent="Réveil en cours…"}
-    if(alOn&&n>=T.getTime()+30*60000)alStop();
+    if(!alOn&&n>=S0){alOn=true;kaAlarm()}
+    $("ast").textContent="Alarme à "+hhmm(T)+" · musique dès "+hhmm(new Date(S0))+" · app active à "+hhmm(new Date())+(alOn?" · réveil en cours":"");
+    $("aon").textContent=alOn?"Arrêter la musique":"Désactiver l’alarme";
+    if(alOn&&n>=T.getTime()+1800000)alStop();
   },1000);
 };
+
 function med(a){if(!a.length)return 0;var b=a.slice().sort(function(x,y){return x-y});return b[Math.floor(b.length/2)]}
-function hypSum(h){var f=function(c){return hm(Math.round((h.split(c).length-1)/2))};return"Éveillé "+f("a")+" · Léger "+f("l")+" · Calme "+f("c")}
+function calc(h){
+  var n=h.length,u=h.split("?").length-1,a=h.split("a").length-1,sl=n-u-a,kn=n-u,on=-1;
+  for(var i=0;i+6<=n;i++){if(/^[lc]{6}$/.test(h.substr(i,6))){on=i;break}}
+  var aw=0;if(on>=0){var r=h.slice(on).match(/a{2,}/g);aw=r?r.length:0}
+  return{asleep:Math.round(sl/2),lat:on>=0?Math.round(on/2):null,aw:aw,eff:kn?Math.min(100,Math.round(sl/kn*100)):0,cov:n?Math.round(kn/n*100):0};
+}
 function drawHyp(h){
-  var cols=Math.min(120,h.length),per=h.length/cols,cw=248/cols,Y={a:10,l:38,c:66},O={a:1,l:.55,c:.25};
-  var svg='<svg viewBox="0 0 300 100" width="100%" role="img" aria-label="Phases de sommeil estimées"><text x="0" y="24" font-size="9" fill="var(--mute)">Éveillé</text><text x="0" y="52" font-size="9" fill="var(--mute)">Léger</text><text x="0" y="80" font-size="9" fill="var(--mute)">Calme</text>';
+  var cols=Math.min(120,h.length),per=h.length/cols,cw=248/cols,Y={a:10,l:38,c:66,u:90},O={a:1,l:.55,c:.25,u:.3};
+  var svg='<svg viewBox="0 0 300 112" width="100%" role="img" aria-label="Phases de sommeil estimées"><text x="0" y="24" font-size="9" fill="var(--mute)">Éveillé</text><text x="0" y="52" font-size="9" fill="var(--mute)">Léger</text><text x="0" y="80" font-size="9" fill="var(--mute)">Calme</text><text x="0" y="98" font-size="9" fill="var(--mute)">Sans données</text>';
   for(var c=0;c<cols;c++){
-    var a=Math.floor(c*per),seg=h.slice(a,Math.max(Math.floor((c+1)*per),a+1)),n={a:0,l:0,c:0};
-    for(var i=0;i<seg.length;i++)n[seg[i]]++;
-    var st=n.a>0&&n.a>=n.l&&n.a>=n.c?"a":(n.l>=n.c?"l":"c");
-    svg+='<rect x="'+(48+c*cw)+'" y="'+Y[st]+'" width="'+(cw+0.3)+'" height="20" rx="2" fill="currentColor" opacity="'+O[st]+'"/>';
+    var a=Math.floor(c*per),seg=h.slice(a,Math.max(Math.floor((c+1)*per),a+1)),n={a:0,l:0,c:0,u:0};
+    for(var i=0;i<seg.length;i++)n[seg[i]==="?"?"u":seg[i]]++;
+    var st=n.u>seg.length/2?"u":(n.a>0&&n.a>=n.l&&n.a>=n.c?"a":(n.l>=n.c?"l":"c"));
+    svg+='<rect x="'+(48+c*cw)+'" y="'+Y[st]+'" width="'+(cw+0.3)+'" height="'+(st==="u"?6:20)+'" rx="2" fill="currentColor" opacity="'+O[st]+'"/>';
   }
   return svg+"</svg>";
 }
-function getWL(){
-  try{if(navigator.wakeLock&&!wl)navigator.wakeLock.request("screen").then(function(l){wl=l;l.addEventListener("release",function(){wl=null})}).catch(function(){})}catch(e){}
+function repHTML(k){
+  var e=S.sl[k],h=e.h,m=calc(h),n=h.length,t=function(x){return h.split(x).length-1};
+  var rows=[["Sommeil estimé",hm(e.d)],["Temps dans le lit",hm(Math.round(n/2))],["Efficacité du sommeil",m.eff+" %"],["Endormissement",m.lat!=null?"≈ "+m.lat+" min":"–"],["Réveils nocturnes",String(m.aw)],["Éveillé",hm(Math.round(t("a")/2))],["Léger",hm(Math.round(t("l")/2))],["Calme (profond probable)",hm(Math.round(t("c")/2))],["Données captées",m.cov+" %"]];
+  var msg=m.cov<70?"Une grande partie de la nuit n’a pas été captée : l’app a probablement été suspendue par l’iPhone. Pour une analyse complète, coche « Garder l’écran allumé ».":(m.eff>=85?"Efficacité de sommeil correcte (85 % ou plus est généralement considéré comme bon).":"Efficacité un peu basse : tu as passé une part notable de la nuit éveillé au lit.");
+  return '<p class="sub" style="font-size:13px;margin:0 0 6px">'+fmt(k)+' · '+e.b+' → '+e.w+'</p>'+drawHyp(h)+'<div class="rep">'+rows.map(function(r){return'<div><span>'+r[0]+'</span><b>'+r[1]+'</b></div>'}).join("")+'</div><p class="sub" style="font-size:13px;margin:8px 0 0">'+msg+' Les phases sont des estimations : le sommeil paradoxal n’est pas détectable avec un téléphone seul.</p>';
 }
-document.addEventListener("visibilitychange",function(){if(document.visibilityState==="visible"&&(nz||al))getWL()});
-var nst=null,nz=null,NL={a:"éveillé",l:"sommeil léger",c:"sommeil calme"};
+function finishNight(ns,endMs){
+  var h=ns.h,idx=Math.floor((endMs-ns.t0)/30000);
+  while(h.length<idx)h+="?";
+  if(h.length<10)return null;
+  var m=calc(h),e=new Date(endMs),k=key(e);
+  S.sl[k]={b:hhmm(new Date(ns.t0)),w:hhmm(e),d:m.asleep,q:sq,h:h,eff:m.eff,lat:m.lat,aw:m.aw};
+  S.ns=null;save();return k;
+}
 function onMotion(e){
   var a=e.accelerationIncludingGravity;if(!nz||!a||a.x==null)return;
   var m=Math.sqrt(a.x*a.x+a.y*a.y+a.z*a.z);
@@ -789,24 +835,25 @@ function nEpoch(){
   nz.sc.push(sc);nz.snd.push(sd);
   var ms=med(nz.sc.slice(-120)),mn=med(nz.snd.slice(-120));
   var st=sc>Math.max(ms*4,0.15)?"a":((sc>Math.max(ms*1.8,0.06)||sd>Math.max(mn*4,0.05))?"l":"c");
-  nz.h+=st;nz.d=0;nz.n=0;nz.mx=0;nz.te=Date.now();
+  var now=Date.now(),idx=Math.max(nz.h.length,Math.floor((now-nz.t0)/30000)-1);
+  while(nz.h.length<idx)nz.h+="?";
+  nz.h+=st;nz.d=0;nz.n=0;nz.mx=0;nz.te=now;
+  S.ns={t0:nz.t0,T:nz.T,h:nz.h};save();
   return st;
 }
-function nStop(){
-  if(!nz)return;
-  clearInterval(nz.iv);window.removeEventListener("devicemotion",onMotion);
-  if(nz.ms)nz.ms.getTracks().forEach(function(t){t.stop()});
-  stopMusic();alOn=false;
-  if(wl){try{wl.release()}catch(e){}wl=null}
-  try{var LN=window.Capacitor&&Capacitor.Plugins&&Capacitor.Plugins.LocalNotifications;if(LN)LN.cancel({notifications:[{id:7}]})}catch(e){}
-  var z=nz;nz=null;
+function nClean(){
+  var z=nz;if(!z)return null;
+  clearInterval(z.iv);window.removeEventListener("devicemotion",onMotion);
+  if(z.ms)z.ms.getTracks().forEach(function(t){t.stop()});
+  kaStop();alOn=false;relWL();nz=null;
   $("non").textContent="Démarrer la nuit";$("nst").textContent="";$("nov").hidden=true;
-  if(z.h.length>=10){
-    var e=new Date(),asleep=Math.round((z.h.length-(z.h.split("a").length-1))/2);
-    S.sl[key(e)]={b:hhmm(new Date(z.t0)),w:hhmm(e),d:asleep,q:sq,h:z.h};
-    save();buzz();
-  }
-  renderS();
+  return z;
+}
+function nStop(){
+  var z=nClean();if(!z)return;
+  var k=finishNight({t0:z.t0,T:z.T,h:z.h},Date.now());
+  if(k){buzz();go("sleep")}
+  else{S.ns=null;save();$("nst").textContent="Nuit trop courte pour une analyse (moins de 5 minutes)."}
 }
 function ncancel(){if(nst){clearTimeout(nst);nst=null}}
 $("nstop").onpointerdown=function(){if(alOn){nStop();return}nst=setTimeout(function(){nst=null;nStop()},1200)};
@@ -816,36 +863,35 @@ $("non").onclick=function(){
   if(nz){nStop();return}
   var t=toMin($("at").value||"07:00"),T=new Date();
   T.setHours(Math.floor(t/60),t%60,0,0);if(T<=new Date())T.setDate(T.getDate()+1);
-  try{if(navigator.audioSession)navigator.audioSession.type="playback"}catch(e){}
-  getWL();
-  var z=nz={t0:Date.now(),te:Date.now(),h:"",sc:[],snd:[],d:0,n:0,p:null,mx:0,T:T.getTime(),W:(+$("aw").value)*60000,an:null,buf:null,ms:null,iv:null,mo:false};
-  actx();
+  actx();kaStart();if($("nwl").checked)getWL();
+  var z=nz={t0:Date.now(),te:Date.now(),h:"",sc:[],snd:[],d:0,n:0,p:null,lm:null,mx:0,ml:0,T:T.getTime(),W:(+$("aw").value)*60000,an:null,buf:null,ms:null,iv:null,mo:false,err:[]};
+  S.ns={t0:z.t0,T:z.T,h:""};save();
   var pm=(window.DeviceMotionEvent&&DeviceMotionEvent.requestPermission)?DeviceMotionEvent.requestPermission():Promise.resolve("granted");
-  pm.then(function(g){if(g==="granted"&&window.DeviceMotionEvent){window.addEventListener("devicemotion",onMotion);z.mo=true}}).catch(function(){})
-  .then(function(){return navigator.mediaDevices&&navigator.mediaDevices.getUserMedia?navigator.mediaDevices.getUserMedia({audio:true}):null})
-  .then(function(ms){
-    if(!ms)return;
-    z.ms=ms;var c=actx(),an=c.createAnalyser();an.fftSize=1024;
-    c.createMediaStreamSource(ms).connect(an);z.an=an;z.buf=new Float32Array(an.fftSize);
-  }).catch(function(){})
-  .then(function(){
+  var gm=(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia)?navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}}):Promise.reject({name:"API micro absente"});
+  Promise.all([
+    pm.then(function(g){if(g==="granted"&&window.DeviceMotionEvent){window.addEventListener("devicemotion",onMotion);z.mo=true}else z.err.push("mouvements refusés")}).catch(function(e){z.err.push("mouvements : "+((e&&e.name)||"erreur"))}),
+    gm.then(function(ms){
+      z.ms=ms;var c=actx(),an=c.createAnalyser(),g0=c.createGain(),src=c.createMediaStreamSource(ms);
+      an.fftSize=1024;g0.gain.value=0;src.connect(an);an.connect(g0);g0.connect(c.destination);
+      z.an=an;z.buf=new Float32Array(an.fftSize);
+    }).catch(function(e){z.err.push("micro : "+((e&&e.name)||"erreur"))})
+  ]).then(function(){
     if(nz!==z)return;
-    if(!z.mo&&!z.an){nz=null;$("nst").textContent="Capteurs indisponibles ici. Ce mode fonctionne une fois l’app installée, avec l’accès au micro et aux mouvements.";return}
-    getWL();
-    try{var LN=window.Capacitor&&Capacitor.Plugins&&Capacitor.Plugins.LocalNotifications;if(LN)LN.requestPermissions().then(function(){return LN.schedule({notifications:[{id:7,title:"Réveil",body:"Il est l’heure de se lever.",schedule:{at:new Date(z.T)}}]})}).catch(function(){})}catch(e){}
+    if(!z.mo&&!z.an){nClean();S.ns=null;save();$("nst").textContent="Capteurs indisponibles : "+(z.err.join(" · ")||"aucun accès")+". Vérifie les autorisations de l’app.";return}
     $("non").textContent="Arrêter la nuit";$("nov").hidden=false;
     z.iv=setInterval(function(){
       if(!nz)return;
+      var n=Date.now();
       if(nz.an){var ml=micLevel();nz.ml=ml;nz.mx=Math.max(nz.mx,ml)}
-      $("nclk").textContent=hhmm(new Date());
-      $("nsub").textContent="Alarme à "+hhmm(new Date(nz.T))+" · musique dès "+hhmm(new Date(nz.T-nz.W))+(alOn?" · réveil en cours":"");
-      $("nsen").textContent=(nz.mo?(nz.lm==null?"mouvement : aucun signal":"mouvement "+nz.lm.toFixed(2)):"mouvement : indisponible")+" · "+(nz.an?"son "+(nz.ml||0).toFixed(2):"micro : indisponible");
-      $("nstop").textContent=alOn?"Arrêter":"Maintenir pour arrêter";
-      var n=Date.now(),st=null;
+      var st=null;
       if(n-nz.te>=30000)st=nEpoch();
-      if(!alOn&&n>=nz.T-nz.W&&st&&st!=="c"){alOn=true;startMusic(120000)}
-      if(!alOn&&n>=nz.T){alOn=true;startMusic(60000)}
-      $("nst").textContent="Nuit en cours · "+hm(Math.floor((n-nz.t0)/60000))+" · "+(nz.h?NL[nz.h.slice(-1)]:"calibrage")+(alOn?" · réveil en cours":"");
+      if(!alOn&&n>=nz.T-nz.W&&st&&st!=="c"&&st!=="?"){alOn=true;kaAlarm()}
+      if(!alOn&&n>=nz.T-300000){alOn=true;kaAlarm()}
+      $("nclk").textContent=hhmm(new Date());
+      $("nsub").textContent="Alarme à "+hhmm(new Date(nz.T))+" · fenêtre dès "+hhmm(new Date(nz.T-nz.W))+(alOn?" · réveil en cours":"");
+      $("nsen").textContent=(nz.mo?(nz.lm==null?"mouvement : aucun signal":"mouvement "+nz.lm.toFixed(2)):"mouvement : indisponible")+" · "+(nz.an?"son "+(nz.ml||0).toFixed(2):"micro : indisponible")+(nz.err.length?" · "+nz.err.join(" · "):"");
+      $("nstop").textContent=alOn?"Arrêter":"Maintenir pour arrêter";
+      $("nst").textContent="Nuit en cours · "+hm(Math.floor((n-nz.t0)/60000))+" · "+(nz.h?(NL[nz.h.slice(-1)]||"pas de données"):"calibrage");
     },1000);
   });
 };
@@ -911,18 +957,29 @@ $("hl").onclick=function(e){
   else return;
   save();renderHabits();
 };
-document.querySelector("nav").onclick=function(e){
-  var b=e.target.closest("button");if(!b)return;
-  var v=b.dataset.v;
-  document.querySelectorAll("nav button").forEach(function(x){x.setAttribute("aria-selected",x===b)});
-  ["dash","tasks","habits","cal","focus","breath","journal","sleep","learn","growth","cap"].forEach(function(x){$("v-"+x).hidden=v!==x});
-  onShow(v);
-  $("prog").hidden=v==="dash";
-  try{b.scrollIntoView({inline:"center",block:"nearest"})}catch(err){}
-  window.scrollTo(0,0);
-};
+var VIEWS=["menu","dash","tasks","habits","cal","focus","breath","journal","sleep","learn","growth","cap"];
+var CATS={dash:{s:["dash"]},tasks:{s:["tasks","habits"]},cal:{s:["cal"]},learn:{s:["focus","learn"]},well:{s:["breath","sleep","journal"]},steps:{s:["growth","cap"]}};
+var VL={dash:["🏠","Accueil"],tasks:["✅","Tâches"],habits:["🔁","Habitudes"],cal:["📅","Historique"],focus:["⏱","Focus"],learn:["📚","Apprendre"],breath:["🧘","Respirer"],sleep:["😴","Sommeil"],journal:["✍️","Journal"],growth:["🌳","Croissance"],cap:["🧭","Mon cap"]};
+var curCat=null;
+function showView(v){
+  VIEWS.forEach(function(x){$("v-"+x).hidden=v!==x});
+  $("prog").hidden=(v==="dash"||v==="menu");
+  var nv=$("nav");nv.hidden=v==="menu";
+  if(v!=="menu"&&curCat){
+    nv.innerHTML='<button role="tab" data-v="menu" aria-selected="false"><span>🏠</span>Menu</button>'+CATS[curCat].s.map(function(x){return'<button role="tab" data-v="'+x+'" aria-selected="'+(x===v)+'"><span>'+VL[x][0]+'</span>'+VL[x][1]+'</button>'}).join("");
+  }
+  onShow(v);window.scrollTo(0,0);
+}
+function openCat(c){curCat=c;showView(CATS[c].s[0])}
+function go(v){for(var c in CATS){if(CATS[c].s.indexOf(v)>-1){curCat=c;showView(v);return}}}
+$("nav").onclick=function(e){var b=e.target.closest("button");if(!b)return;if(b.dataset.v==="menu"){curCat=null;showView("menu")}else showView(b.dataset.v)};
+$("v-menu").onclick=function(e){var b=e.target.closest("button");if(b)openCat(b.dataset.cat)};
 renderTasks();renderHabits();renderD();
+$("msub").textContent=new Date().toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"});
+showView("menu");
+if(S.ns){var rk=finishNight(S.ns,Math.min(Date.now(),S.ns.T+1800000));S.ns=null;save();if(rk)go("sleep")}
 try{if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js").catch(function(){})}catch(e){}
+
 })();
 </script>
 </body>
